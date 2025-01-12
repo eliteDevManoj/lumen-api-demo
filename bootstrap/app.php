@@ -63,6 +63,12 @@ $app->configure('app');
 $app->withFacades();
 $app->withEloquent();
 
+$app->register(Fruitcake\Cors\CorsServiceProvider::class);
+$app->configure('cors');
+$app->middleware([
+    Fruitcake\Cors\HandleCors::class,
+]);
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
